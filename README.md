@@ -27,3 +27,6 @@ optional arguments:
   -u, --update          Update the used tools
   -c, --coverage        Measure code coverage of a given file, this is a dynamic check
 ```
+
+## Setup
+Run pip install -r requirements.txt from the command line to install the required dependencies.
