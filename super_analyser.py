@@ -73,7 +73,10 @@ def flake8_function():
     output_info("Running flake8 \n")
     time.sleep(1)
     flake8_output = subprocess.run(["flake8", "--ignore=W191,E111,E114","--max-line-length=150", file], capture_output=True, text=True, check=False)
-    output_good("Flake8 output: \n" + flake8_output.stdout)
+    if flake8_output.returncode == 0:
+        output_good("Flake8 output: \n" + "No recommendations\n")
+    else:
+        output_good("Flake8 output: \n" + flake8_output.stdout)
     time.sleep(0.5)
 
 def mypy_function():
@@ -96,7 +99,10 @@ def pydocstyle_function():
     output_info("Running pydocstyle \n")
     time.sleep(1)
     pydocstyle_output = subprocess.run(["pydocstyle", file], capture_output=True, text=True, check=False)
-    output_good("pydocstyle output: \n" + pydocstyle_output.stdout)
+    if pydocstyle_output.returncode == 0:
+        output_good("pydocstyle output: \n" + "No recommendations\n")
+    else:
+        output_good("pydocstyle output: \n" + pydocstyle_output.stdout)
 
 def pyright_function():
     output_info("Running pyright \n")
